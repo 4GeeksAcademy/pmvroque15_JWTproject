@@ -48,7 +48,7 @@ def login():
         return jsonify("user does not exist")
     
 @api.route('/user', methods=['GET'])
-@jwt_required
+@jwt_required()
 def get_user():
     uid = get_jwt_identity()
     user = User.query.filter_by(id=uid).first()

@@ -9,16 +9,8 @@ export const LogIn = () => {
   const navigate = useNavigate();
 
   const logInUser = async() => {
-    let response = await fetch(process.env.BACKEND_URL + "/login", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    });
-    let data = await response.json();
-    // navigate("/");
+    actions.login(email,password)
+    navigate("/")
   };
 
   return (
