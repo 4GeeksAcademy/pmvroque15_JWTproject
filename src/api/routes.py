@@ -33,7 +33,7 @@ def create_user():
     db.session.add(user)
     db.session.commit()
 
-    return jsonify("User successfully create")
+    return jsonify("User successfully created")
 
 @api.route('/login', methods=['POST'])
 def login():
@@ -43,7 +43,7 @@ def login():
     user = User.query.filter_by(email = user_email, password = user_password).first()
     if user and user.password == user_password:
         access_token = create_access_token(identity = user.id)
-        return jsonify(access_token = access_token, user = user)
+        return jsonify(access_token = access_token, user = user.serialize())
     else:
         return jsonify("user does not exist")
     
@@ -52,4 +52,4 @@ def login():
 def get_user():
     uid = get_jwt_identity()
     user = User.query.filter_by(id=uid).first()
-    return jsonify(user)
+    return jsonify(user.serialize())
