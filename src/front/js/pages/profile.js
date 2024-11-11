@@ -28,10 +28,11 @@ export const Profile = () => {
         user.email != undefined ? 
         <div>
           <h1>Welcome Back,</h1>
-          <h3>{user.email}</h3>
+          <h3>🚀{user.email}💫</h3>
         </div> 
         : 
-          <h1>YOU MUST LOG IN</h1>
+          <h1>YOU MUST LOG IN 😠</h1>
+          
         
       }
     </div>
