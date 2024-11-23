@@ -10,7 +10,7 @@ export const Profile = () => {
     let response = await fetch(process.env.BACKEND_URL + "/user", {
       method: "GET",
       headers: { 
-        Authorization: "Bearer " + store.token,
+        "Authorization": "Bearer " + store.token,
         'Content-Type': 'application/json'
       },
       
